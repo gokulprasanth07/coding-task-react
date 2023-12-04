@@ -10,9 +10,22 @@ export const counterSlice = createSlice({
   name: "counter",
   initialState,
   reducers: {
-    // increment, decreament, incrementByAmount loginc here
+    increment(state) {
+      state.value++;
+    },
+    decrement(state) {
+      state.value--;
+    },
+    incrementByAmt(state, action){
+      state.value += action.payload
+    },
+    incrementIfOdd(state, action){
+      state.value += action.payload
+    }
   },
 });
+
+export const { increment, decrement, incrementByAmt, incrementIfOdd } = counterSlice.actions
 
 /* Types */
 export interface CounterSliceState {
